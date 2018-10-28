@@ -3,7 +3,28 @@ class dt_codigo_barra extends guc_datos_tabla
 {
 	function get_listado()
 	{
-		$sql = "SELECT
+		$sql = $this->get_query_basica();
+		return toba::db('guc')->consultar($sql);
+	}
+
+	function get_listado_por_longitud($long){
+		$sql = $this->get_query_basica();
+		
+		$sql = $sql." where t_cb.longitud_total = ".$long;
+		
+		return toba::db('guc')->consultar($sql);
+	}
+
+
+	function get_descripciones()
+	{
+		$sql = "SELECT id, descripcion FROM codigo_barra ORDER BY descripcion";
+		return toba::db('guc')->consultar($sql);
+	}
+
+	
+	function get_query_basica(){
+		$query = "SELECT
 			t_cb.id,
 			t_ti.descripcion as tipo_identificador_id_nombre,
 			t_cb.identificador_inicio,
@@ -15,29 +36,18 @@ class dt_codigo_barra extends guc_datos_tabla
 			t_cb.longitud_total,
 			t_cb.descripcion,
 			t_cb.precision_monto,
+			t_cb.periodo_inicio,
+			t_cb.periodo_fin,
 			t_ff.formato
 					FROM
 						codigo_barra as t_cb    
 						LEFT OUTER JOIN tipo_identificador as t_ti ON (t_cb.tipo_identificador_id = t_ti.id)
 						LEFT OUTER JOIN formato_fecha as t_ff ON (t_cb.formato_fecha_id = t_ff.id)";
-		return toba::db('guc')->consultar($sql);
+		
+		return $query;
 	}
 
 
-
-
-	function get_descripciones()
-	{
-		$sql = "SELECT
-			t_cb.id,
-			'(' || t_cb.id  || ')' || t_ti.descripcion || ' - '|| t_cb.descripcion as descripcion
-		FROM
-			codigo_barra as t_cb    
-			LEFT OUTER JOIN tipo_identificador as t_ti 
-			ON (t_cb.tipo_identificador_id = t_ti.id)";
-
-		return toba::db('guc')->consultar($sql);
-	}
 
 }
 ?>

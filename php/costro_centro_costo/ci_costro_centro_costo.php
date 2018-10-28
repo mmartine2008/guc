@@ -137,9 +137,6 @@ class ci_costro_centro_costo extends guc_ci
 			
 			$fecha = $this->getGenerico($codigo_barra_cargado, $fechaInicio, $fechaFin);
 			
-			echo('fecha ');
-			echo($fecha);
-			
 			if($formatoFecha == 'ddmmyy'){
 				
 				$i = 0;
@@ -265,7 +262,7 @@ class ci_costro_centro_costo extends guc_ci
 					if($codigo_barra_cargado != null){
 						
 							if($this->validar_codigo_disponible($costo_id, $codigo_barra_cargado)){
-						
+																
 								//obtengo el id del codigo de barra 
 								$this->dep('datos')->tabla('costo')->cargar(array('id' => $costo_id));
 								$filaCosto = $this->dep('datos')->tabla('costo')->get();
@@ -275,6 +272,31 @@ class ci_costro_centro_costo extends guc_ci
 									$codigosBarra = toba::tabla('codigo_barra');
 									$codigosBarra->cargar(array('id' => $idCodBarra ));
 									$filaCodigoBarra = $codigosBarra->get();
+									
+									
+									$identificadorInicio =  $filaCodigoBarra['identificador_inicio'];
+									$identificadorFin =  $filaCodigoBarra['identificador_fin'];
+									$tipoIdentId =  $filaCodigoBarra['tipo_identificador_id'];
+									
+									
+									// $centro_costo_id = $this->getIdCentroCostoAsociado($codigo_barra_cargado, $identificadorInicio, 
+									//                                                     $identificadorFin, $tipoIdentId, $costo_id);
+									$filaCostosAsociados = $this->getIdCentroCostoAsociado($codigo_barra_cargado, $identificadorInicio, 
+																						$identificadorFin, $tipoIdentId, $costo_id);
+									if($filaCostosAsociados != null){
+										$centro_costo_id = $filaCostosAsociados['id_centro_costo'];
+										$descripcion = $filaCostosAsociados['descripcion'];
+									}else{
+										// no hay costo asociado
+										/**if($tipoIdentId == 7 or $costo_id == 6 or $costo_id == 7){
+											//id 7 = 'sin identificador'
+											//costoId = 6 y 7 son Municipales
+											
+										}else{
+											**/
+											toba::notificacion()->agregar('El codigo de barra no pertenece a un costo asociado');
+										// }
+									}    
 									
 									$fechaInicio =  $filaCodigoBarra['vto_inicio'];
 									$fechaFin = $filaCodigoBarra['vto_fin'];
@@ -289,19 +311,11 @@ class ci_costro_centro_costo extends guc_ci
 									
 									$importe = $this->getImporte($codigo_barra_cargado, $montoInicio, $montoFin, $precisionMonto);
 									
-									$identificadorInicio =  $filaCodigoBarra['identificador_inicio'];
-									$identificadorFin =  $filaCodigoBarra['identificador_fin'];
-									$tipoIdentId =  $filaCodigoBarra['tipo_identificador_id'];
+									$periodoInicio = $filaCodigoBarra['periodo_inicio'];
+									$periodoFin = $filaCodigoBarra['periodo_fin'];
 									
-									
-									// $centro_costo_id = $this->getIdCentroCostoAsociado($codigo_barra_cargado, $identificadorInicio, 
-									//                                                     $identificadorFin, $tipoIdentId, $costo_id);
-									$filaCostosAsociados = $this->getIdCentroCostoAsociado($codigo_barra_cargado, $identificadorInicio, 
-																						$identificadorFin, $tipoIdentId, $costo_id);
-									if($filaCostosAsociados != null){
-										$centro_costo_id = $filaCostosAsociados['id_centro_costo'];
-										$descripcion = $filaCostosAsociados['descripcion'];
-									}    
+									$periodo = $this->getGenerico($codigo_barra_cargado, $periodoInicio, $periodoFin);
+		
 									
 								}
 								
@@ -311,6 +325,7 @@ class ci_costro_centro_costo extends guc_ci
 								$datos['costo_id'] = $costo_id;
 								$datos['centro_costo_id'] = $centro_costo_id;
 								$datos['descripcion'] = $descripcion;
+								$datos['periodo'] = $periodo;
 								
 								$this->pantalla()->eliminar_evento('eliminar');
 							}
@@ -325,9 +340,19 @@ class ci_costro_centro_costo extends guc_ci
 	function evt__form_datos__modificacion($datos)
 	{
 		if ($this->dep('datos')->esta_cargada()) {
-			echo("es una modificacion");
+			//es una modificacion;
+			if($datos['pagado'] == '0'){
+				$datos['fecha_pago']=  null;
+			}
+			else{ //esta pagado
+				if($datos['fecha_pago'] == null){
+					// esta pagado, si no tiene fecha de pago se la seteo 
+					//(asumo que esta cambiando de NO PAGADO a PAGADO) 
+					$datos['fecha_pago']=  date("Y-m-d");
+				}
+			}
 		} else {
-			echo("es un alta");
+			//es un alta
 			if($datos['pagado']){
 				$datos['fecha_pago']=  date("Y-m-d");
 			}

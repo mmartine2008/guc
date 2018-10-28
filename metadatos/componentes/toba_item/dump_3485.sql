@@ -1,5 +1,5 @@
 ------------------------------------------------------------
---[3485]--  Costos Asociados 
+--[3485]--  Base de Datos 
 ------------------------------------------------------------
 
 ------------------------------------------------------------
@@ -23,7 +23,7 @@ INSERT INTO apex_item (item_id, proyecto, item, padre_id, padre_proyecto, padre,
 	NULL, --actividad_buffer
 	NULL, --actividad_patron_proyecto
 	NULL, --actividad_patron
-	'Costos Asociados', --nombre
+	'Base de Datos', --nombre
 	NULL, --descripcion
 	'13', --punto_montaje
 	NULL, --actividad_accion

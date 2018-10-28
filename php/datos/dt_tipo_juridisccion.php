@@ -18,5 +18,12 @@ class dt_tipo_juridisccion extends guc_datos_tabla
 		return toba::db('guc')->consultar($sql);
 	}
 
+
+
+
+
+
+
+
 }
 ?>

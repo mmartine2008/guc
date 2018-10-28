@@ -94,7 +94,7 @@ INSERT INTO apex_objeto_cuadro (objeto_cuadro_proyecto, objeto_cuadro, titulo, s
 	NULL, --columna_descripcion
 	'0', --clave_dbr
 	NULL, --archivos_callbacks
-	'90%', --ancho
+	'100%', --ancho
 	'1', --ordenar
 	'0', --paginar
 	NULL, --tamano_pagina
@@ -118,12 +118,34 @@ INSERT INTO apex_objeto_cuadro (objeto_cuadro_proyecto, objeto_cuadro, titulo, s
 	NULL, --desplegable
 	NULL, --desplegable_activo
 	'1', --scroll
-	'250px', --scroll_alto
+	'90%', --scroll_alto
 	't', --cc_modo
 	'0', --cc_modo_anidado_colap
 	NULL, --cc_modo_anidado_totcol
 	NULL  --cc_modo_anidado_totcua
 );
+
+------------------------------------------------------------
+-- apex_objeto_cuadro_cc
+------------------------------------------------------------
+
+--- INICIO Grupo de desarrollo 0
+INSERT INTO apex_objeto_cuadro_cc (objeto_cuadro_proyecto, objeto_cuadro, objeto_cuadro_cc, identificador, descripcion, orden, columnas_id, columnas_descripcion, pie_contar_filas, pie_mostrar_titular, pie_mostrar_titulos, imp_paginar, modo_inicio_colapsado) VALUES (
+	'guc', --objeto_cuadro_proyecto
+	'5051', --objeto_cuadro
+	'44', --objeto_cuadro_cc
+	'centro_costo_id_nombre', --identificador
+	NULL, --descripcion
+	'1', --orden
+	'centro_costo_id_nombre', --columnas_id
+	'centro_costo_id_nombre', --columnas_descripcion
+	'0', --pie_contar_filas
+	'0', --pie_mostrar_titular
+	'0', --pie_mostrar_titulos
+	NULL, --imp_paginar
+	'0'  --modo_inicio_colapsado
+);
+--- FIN Grupo de desarrollo 0
 
 ------------------------------------------------------------
 -- apex_objeto_ei_cuadro_columna
@@ -136,7 +158,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'3533', --objeto_cuadro_col
 	'costo_id_nombre', --clave
 	'1', --orden
-	'Costo Id', --titulo
+	'Costo', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
 	NULL, --ancho
@@ -167,7 +189,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'3534', --objeto_cuadro_col
 	'centro_costo_id_nombre', --clave
 	'2', --orden
-	'Centro Costo Id', --titulo
+	'Centro Costo', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
 	NULL, --ancho
@@ -233,16 +255,16 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'ei-cuadro-col-tit', --estilo_titulo
 	'1', --estilo
 	NULL, --ancho
-	'7', --formateo
+	'33000001', --formateo
 	NULL, --vinculo_indice
-	NULL, --no_ordenar
+	'0', --no_ordenar
 	NULL, --mostrar_xls
 	NULL, --mostrar_pdf
 	NULL, --pdf_propiedades
 	NULL, --desabilitado
-	NULL, --total
+	'0', --total
 	NULL, --total_cc
-	NULL, --usar_vinculo
+	'0', --usar_vinculo
 	NULL, --vinculo_carpeta
 	NULL, --vinculo_item
 	NULL, --vinculo_popup
@@ -379,3 +401,14 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	NULL  --evento_asociado
 );
 --- FIN Grupo de desarrollo 0
+
+------------------------------------------------------------
+-- apex_objeto_cuadro_col_cc
+------------------------------------------------------------
+INSERT INTO apex_objeto_cuadro_col_cc (objeto_cuadro_cc, objeto_cuadro_proyecto, objeto_cuadro, objeto_cuadro_col, total) VALUES (
+	'44', --objeto_cuadro_cc
+	'guc', --objeto_cuadro_proyecto
+	'5051', --objeto_cuadro
+	'3536', --objeto_cuadro_col
+	'1'  --total
+);

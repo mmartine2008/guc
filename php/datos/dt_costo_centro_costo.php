@@ -33,7 +33,8 @@ class dt_costo_centro_costo extends guc_datos_tabla
 			t_ccc.pagado,
 			t_ccc.codigo_barra,
 			t_ccc.id,
-		        t_ccc.descripcion
+			t_ccc.descripcion,
+			t_ccc.fecha_pago
 		FROM
 			costo_centro_costo as t_ccc,
 			costo as t_c,

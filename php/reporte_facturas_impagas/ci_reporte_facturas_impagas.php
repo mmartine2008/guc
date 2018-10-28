@@ -28,9 +28,9 @@ class ci_reporte_facturas_impagas extends guc_ci
 	function conf__cuadro(toba_ei_cuadro $cuadro)
 	{
 		if (isset($this->s__datos_filtro)) {
-			$cuadro->set_datos($this->dep('datos')->tabla('costo_centro_costo')->get_listado($this->s__datos_filtro));
+			$cuadro->set_datos($this->dep('datos')->tabla('costo_centro_costo')->get_listado_impago($this->s__datos_filtro));
 		} else {
-			$cuadro->set_datos($this->dep('datos')->tabla('costo_centro_costo')->get_listado());
+			$cuadro->set_datos($this->dep('datos')->tabla('costo_centro_costo')->get_listado_impago());
 		}
 	}
 
@@ -79,5 +79,4 @@ class ci_reporte_facturas_impagas extends guc_ci
 	}
 
 }
-
 ?>

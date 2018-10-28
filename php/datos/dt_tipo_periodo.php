@@ -18,5 +18,12 @@ class dt_tipo_periodo extends guc_datos_tabla
 		return toba::db('guc')->consultar($sql);
 	}
 
+
+
+
+
+
+
+
 }
 ?>
