@@ -64,7 +64,9 @@ class ci_reporte_prueba extends guc_ci
 						'periodo' => $fila['periodo'],
 							'costo' => $fila['costo'],
 							$colVariable =>  $fila['importe'], 
-							'total' =>   $fila['importe']        );
+							'total' =>   $fila['importe'],
+							'numero_pago' => $fila['numero_pago'],
+										'fecha_pago' => $fila['fecha_pago']);
 					
 					$datos[$i+1] = $filaArray; 
 				}

@@ -33,11 +33,14 @@ class dt_costo extends guc_datos_tabla
 
 
 
-		function get_descripciones()
-		{
-			$sql = "SELECT id, descripcion FROM costo ORDER BY descripcion";
-			return toba::db('guc')->consultar($sql);
-		}
+	function get_descripciones()
+	{
+		$sql = "SELECT id, descripcion FROM costo ORDER BY descripcion";
+		return toba::db('guc')->consultar($sql);
+	}
+
+
+
 
 
 
@@ -69,15 +72,35 @@ class dt_costo extends guc_datos_tabla
 		if (isset($filtro['periodo'])) {
 			$where[] = "periodo = ".quote($filtro['periodo']);
 		}
-			if (isset($filtro['pagado'])) {
-			$where[] = "pagado= ".quote($filtro['pagado']);
+			if (isset($filtro['numero_pago'])) {
+			$where[] = "numero_pago = ".quote($filtro['numero_pago']);
+		}
+		
+		if (isset($filtro['pagado'])) {
+			if ($filtro['pagado'] == '1')
+				$where[] = "pago_id is not null ";
+			else
+				$where[] = "pago_id is null ";
 		}
 		
 		
-		$sql = "select ccc.fecha_vencimiento, t_c.descripcion as costo, ccc.descripcion, ccc.periodo, ccc.importe as importe, t_cc.descripcion as CentroCosto, t_cc.id as centroCostoId 
+		$sql = 
+			/* "select ccc.fecha_vencimiento, t_c.descripcion as costo, ccc.descripcion, ccc.periodo, ccc.importe as importe, t_cc.descripcion as CentroCosto, t_cc.id as centroCostoId 
 				from costo_centro_costo ccc,
 				costo as t_c,
 				centro_costo as t_cc
+				WHERE
+			ccc.costo_id = t_c.id
+			AND  ccc.centro_costo_id = t_cc.id";
+			*/
+			"select ccc.fecha_vencimiento, t_c.descripcion as costo, 
+					ccc.descripcion, ccc.periodo, ccc.importe as importe, 
+					t_cc.descripcion as CentroCosto, t_cc.id as centroCostoId, 
+					p.numero_pago, p.fecha_pago as fecha_pago
+				from 
+				costo as t_c,
+				centro_costo as t_cc,
+				costo_centro_costo ccc LEFT OUTER JOIN pagos as p ON (ccc.pago_id = p.id)
 				WHERE
 			ccc.costo_id = t_c.id
 			AND  ccc.centro_costo_id = t_cc.id";

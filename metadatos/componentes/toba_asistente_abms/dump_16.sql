@@ -1,5 +1,5 @@
 ------------------------------------------------------------
---[16]--  Costro-Centro costo 
+--[16]--  Facturas 
 ------------------------------------------------------------
 
 ------------------------------------------------------------
@@ -11,7 +11,7 @@ INSERT INTO apex_molde_operacion (proyecto, molde, operacion_tipo, nombre, item,
 	'guc', --proyecto
 	'16', --molde
 	'10', --operacion_tipo
-	'Costro-Centro costo', --nombre
+	'Facturas', --nombre
 	'3480', --item
 	'costro_centro_costo', --carpeta_archivos
 	'_costro_centro_costo', --prefijo_clases
@@ -42,7 +42,7 @@ INSERT INTO apex_molde_operacion_abms (proyecto, molde, tabla, gen_usa_filtro, g
 	t_ccc.importe,
 	t_ccc.periodo,
 	t_ccc.anio,
-	t_ccc.pagado
+        t_ccc.pago_id
 FROM
 	costo_centro_costo as t_ccc', --cuadro_carga_sql
 	NULL, --cuadro_carga_php_include
@@ -258,8 +258,8 @@ INSERT INTO apex_molde_operacion_abms_fila (proyecto, molde, fila, orden, column
 	'pagado', --columna
 	'1000005', --asistente_tipo_dato
 	'Pagado', --etiqueta
-	'1', --en_cuadro
-	'1', --en_form
+	'0', --en_cuadro
+	'0', --en_form
 	'0', --en_filtro
 	'=', --filtro_operador
 	'7', --cuadro_estilo

@@ -140,23 +140,32 @@ class ci_p extends guc_ci
 		{
 			$cant = 0;
 			$max = count($this->seleccionados);
-			for ($i=0; $i<$max; $i++) 
-			{
-								
-				$ccc = $this->seleccionados[$i];
-				$ccc_id = $ccc['id'];
-				if($ccc_id != null){
-					$this->dep('datos')->tabla('costo_centro_costo')->cargar(array('id' => $ccc_id ));
-					$filaFactura = $this->dep('datos')->tabla('costo_centro_costo')->get();
-					$filaFactura['pagado']= 1;
-					//'fecha_original' => '2006-10-26',
-					$filaFactura['fecha_pago']=  date("Y-m-d");
-					$this->dep('datos')->tabla('costo_centro_costo')->set($filaFactura);
-					
-					$this->dep('datos')->sincronizar();
-				}
-			}
 			
+			if($max >0) {
+				//generar nuevo registro en la tabla de pagos
+				$pago = $this->agregarPago();
+				$this->dep('datos')->tabla('pagos')->set($pago);
+				$idPago = $pago['id'];
+				
+				for ($i=0; $i<$max; $i++) 
+						{
+							
+							$ccc = $this->seleccionados[$i];
+							$ccc_id = $ccc['id'];
+							if($ccc_id != null){
+								$this->dep('datos')->tabla('costo_centro_costo')->cargar(array('id' => $ccc_id ));
+								$filaFactura = $this->dep('datos')->tabla('costo_centro_costo')->get();
+								
+								$filaFactura['pago_id']= $idPago;
+								
+								//'fecha_original' => '2006-10-26',
+								$this->dep('datos')->tabla('costo_centro_costo')->set($filaFactura);
+								
+								$this->dep('datos')->sincronizar();
+							}
+						}
+				toba::notificacion()->info('Se ha generado el Pago Nro '.$pago['numero_pago']);
+			}
 			
 			$this->resetear();
 				
@@ -167,6 +176,24 @@ class ci_p extends guc_ci
 		}
 		
 	}
+	
+	
+	
+	function agregarPago(){
+			$pagos= toba::tabla('pagos');
+			$pagos->cargar();
+			
+			$nuevoId = $pagos->get_proximo_id( );
+		
+			$nuevoPago['locked'] =  1;
+			$nuevoPago['usuario_pago'] =  '';
+			$nuevoPago['fecha_pago'] =  date("Y-m-d");
+			$nuevoPago['id'] = $nuevoId + 1;
+			$nuevoPago['numero_pago'] = $nuevoPago['id'];
+			
+			return $nuevoPago;
+		}
+	
 
 }
 ?>

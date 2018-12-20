@@ -22,5 +22,7 @@ class dt_formato_fecha extends guc_datos_tabla
 		return toba::db('guc')->consultar($sql);
 	}
 
+
+
 }
 ?>

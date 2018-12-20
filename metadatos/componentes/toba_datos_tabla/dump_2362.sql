@@ -72,119 +72,91 @@ INSERT INTO apex_objeto_db_registros (objeto_proyecto, objeto, max_registros, mi
 INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
 	'guc', --objeto_proyecto
 	'2362', --objeto
-	'843', --col_id
+	'2175', --col_id
 	'costo_id', --columna
-	'C', --tipo
-	'1', --pk
-	NULL, --secuencia
+	'E', --tipo
+	'0', --pk
+	'', --secuencia
 	NULL, --largo
 	NULL, --no_nulo
-	'0', --no_nulo_db
+	'1', --no_nulo_db
 	'0', --externa
-	NULL  --tabla
+	'costo_centro_costo'  --tabla
 );
 INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
 	'guc', --objeto_proyecto
 	'2362', --objeto
-	'844', --col_id
+	'2176', --col_id
 	'centro_costo_id', --columna
-	'C', --tipo
-	'1', --pk
-	NULL, --secuencia
+	'E', --tipo
+	'0', --pk
+	'', --secuencia
 	NULL, --largo
 	NULL, --no_nulo
-	'0', --no_nulo_db
+	'1', --no_nulo_db
 	'0', --externa
-	NULL  --tabla
+	'costo_centro_costo'  --tabla
 );
 INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
 	'guc', --objeto_proyecto
 	'2362', --objeto
-	'845', --col_id
+	'2177', --col_id
 	'fecha_vencimiento', --columna
 	'T', --tipo
 	'0', --pk
-	NULL, --secuencia
+	'', --secuencia
 	NULL, --largo
 	NULL, --no_nulo
 	'0', --no_nulo_db
 	'0', --externa
-	NULL  --tabla
+	'costo_centro_costo'  --tabla
 );
 INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
 	'guc', --objeto_proyecto
 	'2362', --objeto
-	'846', --col_id
-	'importe', --columna
-	'N', --tipo
-	'0', --pk
-	NULL, --secuencia
-	NULL, --largo
-	NULL, --no_nulo
-	'0', --no_nulo_db
-	'0', --externa
-	NULL  --tabla
-);
-INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
-	'guc', --objeto_proyecto
-	'2362', --objeto
-	'847', --col_id
+	'2178', --col_id
 	'periodo', --columna
 	'E', --tipo
 	'0', --pk
-	NULL, --secuencia
+	'', --secuencia
 	NULL, --largo
 	NULL, --no_nulo
 	'0', --no_nulo_db
 	'0', --externa
-	NULL  --tabla
+	'costo_centro_costo'  --tabla
 );
 INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
 	'guc', --objeto_proyecto
 	'2362', --objeto
-	'848', --col_id
+	'2179', --col_id
 	'anio', --columna
 	'E', --tipo
 	'0', --pk
-	NULL, --secuencia
+	'', --secuencia
 	NULL, --largo
 	NULL, --no_nulo
 	'0', --no_nulo_db
 	'0', --externa
-	NULL  --tabla
+	'costo_centro_costo'  --tabla
 );
 INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
 	'guc', --objeto_proyecto
 	'2362', --objeto
-	'849', --col_id
-	'pagado', --columna
-	'L', --tipo
-	'0', --pk
-	NULL, --secuencia
-	NULL, --largo
-	NULL, --no_nulo
-	'0', --no_nulo_db
-	'0', --externa
-	NULL  --tabla
-);
-INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
-	'guc', --objeto_proyecto
-	'2362', --objeto
-	'851', --col_id
+	'2180', --col_id
 	'codigo_barra', --columna
-	'X', --tipo
+	'C', --tipo
 	'0', --pk
-	NULL, --secuencia
-	NULL, --largo
+	'', --secuencia
+	'200', --largo
 	NULL, --no_nulo
 	'0', --no_nulo_db
 	'0', --externa
-	NULL  --tabla
+	'costo_centro_costo'  --tabla
 );
 INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
 	'guc', --objeto_proyecto
 	'2362', --objeto
-	'864', --col_id
+	'2181', --col_id
 	'id', --columna
 	'E', --tipo
 	'1', --pk
@@ -198,35 +170,21 @@ INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, colum
 INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
 	'guc', --objeto_proyecto
 	'2362', --objeto
-	'2157', --col_id
-	'fecha_pago', --columna
-	'T', --tipo
-	'0', --pk
-	NULL, --secuencia
-	NULL, --largo
-	NULL, --no_nulo
-	'0', --no_nulo_db
-	'0', --externa
-	NULL  --tabla
-);
-INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
-	'guc', --objeto_proyecto
-	'2362', --objeto
-	'2170', --col_id
-	'importe2', --columna
+	'2182', --col_id
+	'importe', --columna
 	'N', --tipo
 	'0', --pk
 	'', --secuencia
 	NULL, --largo
 	NULL, --no_nulo
 	'0', --no_nulo_db
-	NULL, --externa
+	'0', --externa
 	'costo_centro_costo'  --tabla
 );
 INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
 	'guc', --objeto_proyecto
 	'2362', --objeto
-	'2171', --col_id
+	'2183', --col_id
 	'descripcion', --columna
 	'C', --tipo
 	'0', --pk
@@ -234,7 +192,21 @@ INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, colum
 	'200', --largo
 	NULL, --no_nulo
 	'0', --no_nulo_db
-	NULL, --externa
+	'0', --externa
+	'costo_centro_costo'  --tabla
+);
+INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
+	'guc', --objeto_proyecto
+	'2362', --objeto
+	'2184', --col_id
+	'pago_id', --columna
+	'E', --tipo
+	'0', --pk
+	'', --secuencia
+	NULL, --largo
+	NULL, --no_nulo
+	'0', --no_nulo_db
+	'0', --externa
 	'costo_centro_costo'  --tabla
 );
 --- FIN Grupo de desarrollo 0

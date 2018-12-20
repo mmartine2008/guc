@@ -24,5 +24,7 @@ class dt_tipo_identificador extends guc_datos_tabla
 
 
 
+
+
 }
 ?>

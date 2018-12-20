@@ -1,5 +1,79 @@
 <?php
-error_reporting(E_ALL & ~E_NOTICE);
+/** class ci_costro_centro_costo extends guc_ci
+{
+	//---- Cuadro -----------------------------------------------------------------------
+
+	function conf__cuadro(toba_ei_cuadro $cuadro)
+	{
+		$cuadro->set_datos($this->dep('datos')->tabla('costo_centro_costo')->get_listado());
+	}
+
+	function evt__cuadro__eliminar($datos)
+	{
+		$this->dep('datos')->resetear();
+		$this->dep('datos')->cargar($datos);
+		$this->dep('datos')->eliminar_todo();
+		$this->dep('datos')->resetear();
+	}
+
+	function evt__cuadro__seleccion($datos)
+	{
+		$this->dep('datos')->cargar($datos);
+		$this->set_pantalla('pant_edicion');
+	}
+
+	//---- Formulario -------------------------------------------------------------------
+
+	/**   function conf__formulario(toba_ei_formulario $form)
+	{
+		if ($this->dep('datos')->esta_cargada()) {
+			$form->set_datos($this->dep('datos')->tabla('costo_centro_costo')->get());
+		} else {
+			$this->pantalla()->eliminar_evento('eliminar');
+		}
+	}
+
+	function evt__formulario__modificacion($datos)
+	{
+		$this->dep('datos')->tabla('costo_centro_costo')->set($datos);
+	}
+
+	function resetear()
+	{
+		$this->dep('datos')->resetear();
+		$this->set_pantalla('pant_seleccion');
+	}
+
+	//---- EVENTOS CI -------------------------------------------------------------------
+
+	/**
+	function evt__agregar()
+	{
+		$this->set_pantalla('pant_edicion');
+	}
+
+	function evt__volver()
+	{
+		$this->resetear();
+	}
+
+	function evt__eliminar()
+	{
+		$this->dep('datos')->eliminar_todo();
+		$this->resetear();
+	}
+
+	function evt__guardar()
+	{
+		$this->dep('datos')->sincronizar();
+		$this->resetear();
+	}
+
+} **/
+
+
+
+
 
 class ci_costro_centro_costo extends guc_ci
 {
@@ -23,7 +97,6 @@ class ci_costro_centro_costo extends guc_ci
 	function evt__cuadro__seleccion($datos)
 	{
 		$this->dep('datos')->cargar($datos);
-		//  $this->set_pantalla('pant_edicion');
 		$this->set_pantalla('pant_datos');
 	}
 
@@ -32,6 +105,7 @@ class ci_costro_centro_costo extends guc_ci
 	function conf__formulario(toba_ei_formulario $form)
 	{
 		if ($this->dep('datos')->esta_cargada()) {
+			//$form->set_datos($this->dep('datos')->tabla('costo_centro_costo')->get(array('id'=>$this->s__datos_seleccionados)));
 			$form->set_datos($this->dep('datos')->tabla('costo_centro_costo')->get());
 		} else {
 			$this->pantalla()->eliminar_evento('eliminar');
@@ -74,6 +148,8 @@ class ci_costro_centro_costo extends guc_ci
 			*/
 	function evt__guardar()
 	{
+		//echo(" evento guardar ");
+		//ei_arbol($this->dep('datos'));
 		$this->dep('datos')->sincronizar();
 		$this->resetear();
 	}
@@ -91,7 +167,7 @@ class ci_costro_centro_costo extends guc_ci
 	function evt__formulario__procesar($datos)
 	{
 			$this->s__datos_seleccionados = $datos;
-			if($this->validar_codigo_form()){
+			if($this->validar_codigo_form($datos)){
 				$this->set_pantalla('pant_datos');
 			}else{
 				toba::notificacion()->agregar('El codigo de barra ya fue cargado');
@@ -136,7 +212,7 @@ class ci_costro_centro_costo extends guc_ci
 			$formatoFecha =  $filaFormatoFecha ['formato'];
 			
 			$fecha = $this->getGenerico($codigo_barra_cargado, $fechaInicio, $fechaFin);
-			
+									
 			if($formatoFecha == 'ddmmyy'){
 				
 				$i = 0;
@@ -199,6 +275,7 @@ class ci_costro_centro_costo extends guc_ci
 		
 		$filaCostosAsociados = $costos->get();
 		
+		
 		//$centroCostoId =  $filaCostosAsociados['id_centro_costo'];
 		
 		/**
@@ -210,15 +287,19 @@ class ci_costro_centro_costo extends guc_ci
 		
 		//return $centroCostoId;
 		
+		//ei_arbol($filaCostosAsociados);
 		return $filaCostosAsociados;
 	}
 	
-	function validar_codigo_form(){
+	function validar_codigo_form($datos){
 		if ($this->dep('datos')->esta_cargada()) {
 						//nada
 			} else {
 				$costo_id = $this->s__datos_seleccionados['costo_id'];
 				$codigo_barra_cargado = $this->s__datos_seleccionados['codigo_barra'];
+				
+				$longitud = strlen($codigo_barra_cargado);
+				
 				
 				//valido si el codigo de barra ya fue usado
 				
@@ -233,16 +314,20 @@ class ci_costro_centro_costo extends guc_ci
 	
 	function validar_codigo_disponible($costo_id, $codigo_barra_cargado){
 		$filaCodigo = null;
+		
 		$this->dep('datos')->tabla('codigo_barra_usado')->cargar(array('id_costo' => $costo_id,
 																		'codigo_barra' => $codigo_barra_cargado));
 		$filaCodigo = $this->dep('datos')->tabla('codigo_barra_usado')->get_filas(array('id_costo' => $costo_id,
 																						'codigo_barra' => $codigo_barra_cargado));
+		
+		
 		if ($filaCodigo  != null){
 			//esta usado
 			return false;
 		}else{
 			return true;
 		}
+		
 	}
 	
 	function conf__form_datos(guc_ei_formulario $form)
@@ -250,9 +335,10 @@ class ci_costro_centro_costo extends guc_ci
 			$importe = null;
 			$fecha = null;
 			$centro_costo_id = null;
-		$descripcion = null;
-			if ($this->dep('datos')->esta_cargada()) {
-						$datos = $this->dep('datos')->tabla('costo_centro_costo')->get();
+			$descripcion = null;
+			$periodo = null;
+				if ($this->dep('datos')->esta_cargada()) {
+					$datos = $this->dep('datos')->tabla('costo_centro_costo')->get();
 				} else {
 					$costo_id = $this->s__datos_seleccionados['costo_id'];
 					$codigo_barra_cargado = $this->s__datos_seleccionados['codigo_barra'];
@@ -288,13 +374,7 @@ class ci_costro_centro_costo extends guc_ci
 										$descripcion = $filaCostosAsociados['descripcion'];
 									}else{
 										// no hay costo asociado
-										/**if($tipoIdentId == 7 or $costo_id == 6 or $costo_id == 7){
-											//id 7 = 'sin identificador'
-											//costoId = 6 y 7 son Municipales
-											
-										}else{
-											**/
-											toba::notificacion()->agregar('El codigo de barra no pertenece a un costo asociado');
+										toba::notificacion()->agregar('El codigo de barra no pertenece a un costo asociado');
 										// }
 									}    
 									
@@ -313,9 +393,7 @@ class ci_costro_centro_costo extends guc_ci
 									
 									$periodoInicio = $filaCodigoBarra['periodo_inicio'];
 									$periodoFin = $filaCodigoBarra['periodo_fin'];
-									
 									$periodo = $this->getGenerico($codigo_barra_cargado, $periodoInicio, $periodoFin);
-		
 									
 								}
 								
@@ -339,33 +417,48 @@ class ci_costro_centro_costo extends guc_ci
 
 	function evt__form_datos__modificacion($datos)
 	{
+		//echo(" evt__form_datos__modificacion ");
+		
 		if ($this->dep('datos')->esta_cargada()) {
+			//echo(" modif ");
+			//ei_arbol($datos);
+			$this->dep('datos')->sincronizar();
+			$this->resetear();
+			
 			//es una modificacion;
-			if($datos['pagado'] == '0'){
+			/* if($datos['pagado'] == '0'){
 				$datos['fecha_pago']=  null;
 			}
 			else{ //esta pagado
 				if($datos['fecha_pago'] == null){
+					*/
 					// esta pagado, si no tiene fecha de pago se la seteo 
 					//(asumo que esta cambiando de NO PAGADO a PAGADO) 
-					$datos['fecha_pago']=  date("Y-m-d");
+			/*        $datos['fecha_pago']=  date("Y-m-d");
 				}
 			}
+			*/
+			
 		} else {
 			//es un alta
-			if($datos['pagado']){
+			/*echo(" alta ");
+			ei_arbol($datos);
+			*/
+			/*if($datos['pagado']){
 				$datos['fecha_pago']=  date("Y-m-d");
 			}
+			*/
 			//cargo el nuevo codigo de barra usado
 			if($datos['codigo_barra'] != null){
 				$codUsado = $this->agregarCodigoUsado($datos);
 				$this->dep('datos')->tabla('codigo_barra_usado')->set($codUsado);
 				}
+			$this->dep('datos')->tabla('costo_centro_costo')->set($datos);
+		
+			$this->dep('datos')->sincronizar();
+		
 		}
 				
-		$this->dep('datos')->tabla('costo_centro_costo')->set($datos);
-		
-		$this->dep('datos')->sincronizar();
 		
 	}
 	

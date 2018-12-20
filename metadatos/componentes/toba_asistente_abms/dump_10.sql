@@ -37,7 +37,6 @@ INSERT INTO apex_molde_operacion_abms (proyecto, molde, tabla, gen_usa_filtro, g
 	'datos_tabla', --cuadro_carga_origen
 	'SELECT
 	t_cb.id,
-	t_ti.descripcion as tipo_identificador_id_nombre,
 	t_cb.identificador_inicio,
 	t_cb.identificador_fin,
 	t_cb.vto_inicio,
@@ -48,7 +47,6 @@ INSERT INTO apex_molde_operacion_abms (proyecto, molde, tabla, gen_usa_filtro, g
  t_ff.formato
           FROM
               codigo_barra as t_cb    
-             LEFT OUTER JOIN tipo_identificador as t_ti ON (t_cb.tipo_identificador_id = t_ti.id)
               LEFT OUTER JOIN formato_fecha as t_ff ON (t_cb.formato_fecha_id = t_ff.id)', --cuadro_carga_sql
 	NULL, --cuadro_carga_php_include
 	NULL, --cuadro_carga_php_clase
