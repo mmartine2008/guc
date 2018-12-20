@@ -204,6 +204,9 @@ class ci_costro_centro_costo extends guc_ci
 	function getFechaVto($codigo_barra_cargado, $fechaInicio, $fechaFin,  $formatoFechaId )
 	{
 		$fecha_final = null;  
+		/* echo(" cod barra ".$codigo_barra_cargado." inicio fecha ".$fechaInicio." fin fecha ". $fechaFin
+				." formato fecha ".  $formatoFechaId);
+		*/
 		if($formatoFechaId!= null){
 			$formatos = toba::tabla('formato_fecha');
 			$formatos->cargar(array('id' => $formatoFechaId ));
@@ -250,6 +253,7 @@ class ci_costro_centro_costo extends guc_ci
 				$dia= substr($fecha, $i, 2);
 				
 				//'fecha_original' => '2006-10-26',
+				echo(" fecha ".$fecha);
 				$fecha_final = $anio."-".$mes."-".$dia;
 			} 
 		}      
@@ -346,7 +350,7 @@ class ci_costro_centro_costo extends guc_ci
 					//valido si el codigo de barra ya fue usado
 					
 					if($codigo_barra_cargado != null){
-						
+						echo($codigo_barra_cargado);
 							if($this->validar_codigo_disponible($costo_id, $codigo_barra_cargado)){
 																
 								//obtengo el id del codigo de barra 
