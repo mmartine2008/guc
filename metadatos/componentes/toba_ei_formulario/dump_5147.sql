@@ -1,5 +1,5 @@
 ------------------------------------------------------------
---[2390]--  Centro de Costo - Form 
+--[5147]--  Base de Datos 3 - Filtro 
 ------------------------------------------------------------
 
 ------------------------------------------------------------
@@ -9,7 +9,7 @@
 --- INICIO Grupo de desarrollo 0
 INSERT INTO apex_objeto (proyecto, objeto, anterior, identificador, reflexivo, clase_proyecto, clase, punto_montaje, subclase, subclase_archivo, objeto_categoria_proyecto, objeto_categoria, nombre, titulo, colapsable, descripcion, fuente_datos_proyecto, fuente_datos, solicitud_registrar, solicitud_obj_obs_tipo, solicitud_obj_observacion, parametro_a, parametro_b, parametro_c, parametro_d, parametro_e, parametro_f, usuario, creacion, posicion_botonera) VALUES (
 	'guc', --proyecto
-	'2390', --objeto
+	'5147', --objeto
 	NULL, --anterior
 	NULL, --identificador
 	NULL, --reflexivo
@@ -20,7 +20,7 @@ INSERT INTO apex_objeto (proyecto, objeto, anterior, identificador, reflexivo, c
 	NULL, --subclase_archivo
 	NULL, --objeto_categoria_proyecto
 	NULL, --objeto_categoria
-	'Centro de Costo - Form', --nombre
+	'Base de Datos 3 - Filtro', --nombre
 	NULL, --titulo
 	'0', --colapsable
 	NULL, --descripcion
@@ -36,7 +36,7 @@ INSERT INTO apex_objeto (proyecto, objeto, anterior, identificador, reflexivo, c
 	NULL, --parametro_e
 	NULL, --parametro_f
 	NULL, --usuario
-	'2018-04-22 03:35:53', --creacion
+	'2018-12-26 21:27:18', --creacion
 	'abajo'  --posicion_botonera
 );
 --- FIN Grupo de desarrollo 0
@@ -48,24 +48,57 @@ INSERT INTO apex_objeto (proyecto, objeto, anterior, identificador, reflexivo, c
 --- INICIO Grupo de desarrollo 0
 INSERT INTO apex_objeto_eventos (proyecto, evento_id, objeto, identificador, etiqueta, maneja_datos, sobre_fila, confirmacion, estilo, imagen_recurso_origen, imagen, en_botonera, ayuda, orden, ci_predep, implicito, defecto, display_datos_cargados, grupo, accion, accion_imphtml_debug, accion_vinculo_carpeta, accion_vinculo_item, accion_vinculo_objeto, accion_vinculo_popup, accion_vinculo_popup_param, accion_vinculo_target, accion_vinculo_celda, accion_vinculo_servicio, es_seleccion_multiple, es_autovinculo) VALUES (
 	'guc', --proyecto
-	'1211', --evento_id
-	'2390', --objeto
-	'modificacion', --identificador
-	NULL, --etiqueta
+	'5111', --evento_id
+	'5147', --objeto
+	'filtrar', --identificador
+	'Filtrar', --etiqueta
 	'1', --maneja_datos
 	'0', --sobre_fila
 	NULL, --confirmacion
 	NULL, --estilo
-	NULL, --imagen_recurso_origen
-	NULL, --imagen
-	'0', --en_botonera
+	'apex', --imagen_recurso_origen
+	'filtrar.png', --imagen
+	'1', --en_botonera
 	NULL, --ayuda
 	'0', --orden
 	NULL, --ci_predep
-	'1', --implicito
+	NULL, --implicito
+	'1', --defecto
+	NULL, --display_datos_cargados
+	'cargado,no_cargado', --grupo
+	NULL, --accion
+	NULL, --accion_imphtml_debug
+	NULL, --accion_vinculo_carpeta
+	NULL, --accion_vinculo_item
+	NULL, --accion_vinculo_objeto
+	NULL, --accion_vinculo_popup
+	NULL, --accion_vinculo_popup_param
+	NULL, --accion_vinculo_target
+	NULL, --accion_vinculo_celda
+	NULL, --accion_vinculo_servicio
+	'0', --es_seleccion_multiple
+	'0'  --es_autovinculo
+);
+INSERT INTO apex_objeto_eventos (proyecto, evento_id, objeto, identificador, etiqueta, maneja_datos, sobre_fila, confirmacion, estilo, imagen_recurso_origen, imagen, en_botonera, ayuda, orden, ci_predep, implicito, defecto, display_datos_cargados, grupo, accion, accion_imphtml_debug, accion_vinculo_carpeta, accion_vinculo_item, accion_vinculo_objeto, accion_vinculo_popup, accion_vinculo_popup_param, accion_vinculo_target, accion_vinculo_celda, accion_vinculo_servicio, es_seleccion_multiple, es_autovinculo) VALUES (
+	'guc', --proyecto
+	'5112', --evento_id
+	'5147', --objeto
+	'cancelar', --identificador
+	'Limpiar', --etiqueta
+	'1', --maneja_datos
+	'0', --sobre_fila
+	NULL, --confirmacion
+	NULL, --estilo
+	'apex', --imagen_recurso_origen
+	'limpiar.png', --imagen
+	'1', --en_botonera
+	NULL, --ayuda
+	'1', --orden
+	NULL, --ci_predep
+	NULL, --implicito
 	NULL, --defecto
 	NULL, --display_datos_cargados
-	NULL, --grupo
+	'cargado', --grupo
 	NULL, --accion
 	NULL, --accion_imphtml_debug
 	NULL, --accion_vinculo_carpeta
@@ -86,7 +119,7 @@ INSERT INTO apex_objeto_eventos (proyecto, evento_id, objeto, identificador, eti
 ------------------------------------------------------------
 INSERT INTO apex_objeto_ut_formulario (objeto_ut_formulario_proyecto, objeto_ut_formulario, tabla, titulo, ev_agregar, ev_agregar_etiq, ev_mod_modificar, ev_mod_modificar_etiq, ev_mod_eliminar, ev_mod_eliminar_etiq, ev_mod_limpiar, ev_mod_limpiar_etiq, ev_mod_clave, clase_proyecto, clase, auto_reset, ancho, ancho_etiqueta, expandir_descripcion, campo_bl, scroll, filas, filas_agregar, filas_agregar_online, filas_agregar_abajo, filas_agregar_texto, filas_borrar_en_linea, filas_undo, filas_ordenar, filas_ordenar_en_linea, columna_orden, filas_numerar, ev_seleccion, alto, analisis_cambios, no_imprimir_efs_sin_estado, resaltar_efs_con_estado, template, template_impresion) VALUES (
 	'guc', --objeto_ut_formulario_proyecto
-	'2390', --objeto_ut_formulario
+	'5147', --objeto_ut_formulario
 	NULL, --tabla
 	NULL, --titulo
 	NULL, --ev_agregar
@@ -101,7 +134,7 @@ INSERT INTO apex_objeto_ut_formulario (objeto_ut_formulario_proyecto, objeto_ut_
 	NULL, --clase_proyecto
 	NULL, --clase
 	NULL, --auto_reset
-	NULL, --ancho
+	'90%', --ancho
 	'150px', --ancho_etiqueta
 	'0', --expandir_descripcion
 	NULL, --campo_bl
@@ -120,8 +153,8 @@ INSERT INTO apex_objeto_ut_formulario (objeto_ut_formulario_proyecto, objeto_ut_
 	NULL, --ev_seleccion
 	NULL, --alto
 	NULL, --analisis_cambios
-	'0', --no_imprimir_efs_sin_estado
-	'0', --resaltar_efs_con_estado
+	'1', --no_imprimir_efs_sin_estado
+	'1', --resaltar_efs_con_estado
 	NULL, --template
 	NULL  --template_impresion
 );
@@ -132,44 +165,44 @@ INSERT INTO apex_objeto_ut_formulario (objeto_ut_formulario_proyecto, objeto_ut_
 
 --- INICIO Grupo de desarrollo 0
 INSERT INTO apex_objeto_ei_formulario_ef (objeto_ei_formulario_fila, objeto_ei_formulario, objeto_ei_formulario_proyecto, identificador, elemento_formulario, columnas, obligatorio, oculto_relaja_obligatorio, orden, etiqueta, etiqueta_estilo, descripcion, colapsado, desactivado, estilo, total, inicializacion, permitir_html, deshabilitar_rest_func, estado_defecto, solo_lectura, solo_lectura_modificacion, carga_metodo, carga_clase, carga_include, carga_dt, carga_consulta_php, carga_sql, carga_fuente, carga_lista, carga_col_clave, carga_col_desc, carga_maestros, carga_cascada_relaj, cascada_mantiene_estado, carga_permite_no_seteado, carga_no_seteado, carga_no_seteado_ocultar, edit_tamano, edit_maximo, edit_mascara, edit_unidad, edit_rango, edit_filas, edit_columnas, edit_wrap, edit_resaltar, edit_ajustable, edit_confirmar_clave, edit_expreg, popup_item, popup_proyecto, popup_editable, popup_ventana, popup_carga_desc_metodo, popup_carga_desc_clase, popup_carga_desc_include, popup_puede_borrar_estado, fieldset_fin, check_valor_si, check_valor_no, check_desc_si, check_desc_no, check_ml_toggle, fijo_sin_estado, editor_ancho, editor_alto, editor_botonera, selec_cant_minima, selec_cant_maxima, selec_utilidades, selec_tamano, selec_ancho, selec_serializar, selec_cant_columnas, upload_extensiones, punto_montaje, placeholder) VALUES (
-	'5470', --objeto_ei_formulario_fila
-	'2390', --objeto_ei_formulario
+	'8719', --objeto_ei_formulario_fila
+	'5147', --objeto_ei_formulario
 	'guc', --objeto_ei_formulario_proyecto
-	'descripcion', --identificador
-	'ef_editable', --elemento_formulario
-	'descripcion', --columnas
+	'id_centro_costo', --identificador
+	'ef_combo', --elemento_formulario
+	'id_centro_costo', --columnas
 	'0', --obligatorio
 	'0', --oculto_relaja_obligatorio
 	'1', --orden
-	'Descripcion', --etiqueta
+	'Centro Costo', --etiqueta
 	NULL, --etiqueta_estilo
 	NULL, --descripcion
-	NULL, --colapsado
-	NULL, --desactivado
+	'0', --colapsado
+	'0', --desactivado
 	NULL, --estilo
 	NULL, --total
 	NULL, --inicializacion
-	NULL, --permitir_html
-	NULL, --deshabilitar_rest_func
+	'0', --permitir_html
+	'0', --deshabilitar_rest_func
 	NULL, --estado_defecto
-	NULL, --solo_lectura
+	'0', --solo_lectura
 	'0', --solo_lectura_modificacion
-	NULL, --carga_metodo
+	'get_descripciones', --carga_metodo
 	NULL, --carga_clase
 	NULL, --carga_include
-	NULL, --carga_dt
+	'2352', --carga_dt
 	NULL, --carga_consulta_php
 	NULL, --carga_sql
-	NULL, --carga_fuente
+	'guc', --carga_fuente
 	NULL, --carga_lista
-	NULL, --carga_col_clave
-	NULL, --carga_col_desc
+	'id', --carga_col_clave
+	'descripcion', --carga_col_desc
 	NULL, --carga_maestros
-	NULL, --carga_cascada_relaj
+	'0', --carga_cascada_relaj
 	'0', --cascada_mantiene_estado
-	'0', --carga_permite_no_seteado
-	NULL, --carga_no_seteado
-	NULL, --carga_no_seteado_ocultar
+	'1', --carga_permite_no_seteado
+	'-- Seleccione --', --carga_no_seteado
+	'0', --carga_no_seteado_ocultar
 	NULL, --edit_tamano
 	NULL, --edit_maximo
 	NULL, --edit_mascara
@@ -208,20 +241,20 @@ INSERT INTO apex_objeto_ei_formulario_ef (objeto_ei_formulario_fila, objeto_ei_f
 	NULL, --selec_serializar
 	NULL, --selec_cant_columnas
 	NULL, --upload_extensiones
-	NULL, --punto_montaje
+	'13', --punto_montaje
 	NULL  --placeholder
 );
 INSERT INTO apex_objeto_ei_formulario_ef (objeto_ei_formulario_fila, objeto_ei_formulario, objeto_ei_formulario_proyecto, identificador, elemento_formulario, columnas, obligatorio, oculto_relaja_obligatorio, orden, etiqueta, etiqueta_estilo, descripcion, colapsado, desactivado, estilo, total, inicializacion, permitir_html, deshabilitar_rest_func, estado_defecto, solo_lectura, solo_lectura_modificacion, carga_metodo, carga_clase, carga_include, carga_dt, carga_consulta_php, carga_sql, carga_fuente, carga_lista, carga_col_clave, carga_col_desc, carga_maestros, carga_cascada_relaj, cascada_mantiene_estado, carga_permite_no_seteado, carga_no_seteado, carga_no_seteado_ocultar, edit_tamano, edit_maximo, edit_mascara, edit_unidad, edit_rango, edit_filas, edit_columnas, edit_wrap, edit_resaltar, edit_ajustable, edit_confirmar_clave, edit_expreg, popup_item, popup_proyecto, popup_editable, popup_ventana, popup_carga_desc_metodo, popup_carga_desc_clase, popup_carga_desc_include, popup_puede_borrar_estado, fieldset_fin, check_valor_si, check_valor_no, check_desc_si, check_desc_no, check_ml_toggle, fijo_sin_estado, editor_ancho, editor_alto, editor_botonera, selec_cant_minima, selec_cant_maxima, selec_utilidades, selec_tamano, selec_ancho, selec_serializar, selec_cant_columnas, upload_extensiones, punto_montaje, placeholder) VALUES (
-	'5471', --objeto_ei_formulario_fila
-	'2390', --objeto_ei_formulario
+	'8720', --objeto_ei_formulario_fila
+	'5147', --objeto_ei_formulario
 	'guc', --objeto_ei_formulario_proyecto
-	'tipo_centro_costo_id', --identificador
+	'id_costo', --identificador
 	'ef_combo', --elemento_formulario
-	'tipo_centro_costo_id', --columnas
-	'1', --obligatorio
+	'id_costo', --columnas
+	'0', --obligatorio
 	'0', --oculto_relaja_obligatorio
 	'2', --orden
-	'Tipo Centro Costo', --etiqueta
+	'Costo', --etiqueta
 	NULL, --etiqueta_estilo
 	NULL, --descripcion
 	'0', --colapsado
@@ -237,7 +270,7 @@ INSERT INTO apex_objeto_ei_formulario_ef (objeto_ei_formulario_fila, objeto_ei_f
 	'get_descripciones', --carga_metodo
 	NULL, --carga_clase
 	NULL, --carga_include
-	'2347', --carga_dt
+	'2342', --carga_dt
 	NULL, --carga_consulta_php
 	NULL, --carga_sql
 	'guc', --carga_fuente

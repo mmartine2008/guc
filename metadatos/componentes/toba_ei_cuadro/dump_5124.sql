@@ -128,11 +128,11 @@ INSERT INTO apex_objeto_cuadro (objeto_cuadro_proyecto, objeto_cuadro, titulo, s
 	'0', --clave_dbr
 	NULL, --archivos_callbacks
 	'100%', --ancho
-	'0', --ordenar
-	'0', --paginar
-	NULL, --tamano_pagina
+	'1', --ordenar
+	'1', --paginar
+	'20', --tamano_pagina
 	'P', --tipo_paginado
-	'0', --mostrar_total_registros
+	'1', --mostrar_total_registros
 	'1', --eof_invisible
 	NULL, --eof_customizado
 	'0', --siempre_con_titulo
@@ -151,7 +151,7 @@ INSERT INTO apex_objeto_cuadro (objeto_cuadro_proyecto, objeto_cuadro, titulo, s
 	NULL, --desplegable
 	NULL, --desplegable_activo
 	'1', --scroll
-	'250px', --scroll_alto
+	'80%', --scroll_alto
 	't', --cc_modo
 	'0', --cc_modo_anidado_colap
 	NULL, --cc_modo_anidado_totcol
@@ -169,7 +169,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'3710', --objeto_cuadro_col
 	'costo_id_nombre', --clave
 	'2', --orden
-	'Costo Id', --titulo
+	'Costo', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
 	NULL, --ancho
@@ -200,7 +200,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'3711', --objeto_cuadro_col
 	'centro_costo_id_nombre', --clave
 	'3', --orden
-	'Centro Costo Id', --titulo
+	'Centro de Costo', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
 	NULL, --ancho
@@ -235,7 +235,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'ei-cuadro-col-tit', --estilo_titulo
 	'7', --estilo
 	NULL, --ancho
-	'18', --formateo
+	'8', --formateo
 	NULL, --vinculo_indice
 	NULL, --no_ordenar
 	NULL, --mostrar_xls
@@ -266,7 +266,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'ei-cuadro-col-tit', --estilo_titulo
 	'1', --estilo
 	NULL, --ancho
-	'7', --formateo
+	'33000001', --formateo
 	NULL, --vinculo_indice
 	NULL, --no_ordenar
 	NULL, --mostrar_xls

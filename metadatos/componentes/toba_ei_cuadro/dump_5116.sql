@@ -16,8 +16,8 @@ INSERT INTO apex_objeto (proyecto, objeto, anterior, identificador, reflexivo, c
 	'toba', --clase_proyecto
 	'toba_ei_cuadro', --clase
 	'13', --punto_montaje
-	NULL, --subclase
-	NULL, --subclase_archivo
+	'extension_seleccion_evt', --subclase
+	'gestion/Facturas/extension_seleccion_evt.php', --subclase_archivo
 	NULL, --objeto_categoria_proyecto
 	NULL, --objeto_categoria
 	'Facturas - Cuadro.', --nombre
@@ -127,7 +127,7 @@ INSERT INTO apex_objeto_cuadro (objeto_cuadro_proyecto, objeto_cuadro, titulo, s
 	NULL, --columna_descripcion
 	'0', --clave_dbr
 	NULL, --archivos_callbacks
-	'100%', --ancho
+	'90%', --ancho
 	'1', --ordenar
 	'0', --paginar
 	NULL, --tamano_pagina
@@ -353,13 +353,13 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'guc', --objeto_cuadro_proyecto
 	'5116', --objeto_cuadro
 	'3720', --objeto_cuadro_col
-	'pago_id', --clave
+	'numero_pago', --clave
 	'7', --orden
 	'Pagado', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'7', --estilo
 	NULL, --ancho
-	'13', --formateo
+	'7', --formateo
 	NULL, --vinculo_indice
 	NULL, --no_ordenar
 	NULL, --mostrar_xls

@@ -22,10 +22,10 @@ INSERT INTO apex_objeto (proyecto, objeto, anterior, identificador, reflexivo, c
 	NULL, --objeto_categoria
 	'Costos Asociados - CI', --nombre
 	NULL, --titulo
-	NULL, --colapsable
+	'0', --colapsable
 	NULL, --descripcion
-	'guc', --fuente_datos_proyecto
-	'guc', --fuente_datos
+	NULL, --fuente_datos_proyecto
+	NULL, --fuente_datos
 	NULL, --solicitud_registrar
 	NULL, --solicitud_obj_obs_tipo
 	NULL, --solicitud_obj_observacion
@@ -37,7 +37,7 @@ INSERT INTO apex_objeto (proyecto, objeto, anterior, identificador, reflexivo, c
 	NULL, --parametro_f
 	NULL, --usuario
 	'2018-08-17 00:52:02', --creacion
-	NULL  --posicion_botonera
+	'abajo'  --posicion_botonera
 );
 --- FIN Grupo de desarrollo 0
 
@@ -52,9 +52,9 @@ INSERT INTO apex_objeto_mt_me (objeto_mt_me_proyecto, objeto_mt_me, ev_procesar_
 	'500px', --ancho
 	'300px', --alto
 	NULL, --posicion_botonera
-	NULL, --tipo_navegacion
-	NULL, --botonera_barra_item
-	NULL, --con_toc
+	'wizard', --tipo_navegacion
+	'0', --botonera_barra_item
+	'0', --con_toc
 	NULL, --incremental
 	NULL, --debug_eventos
 	NULL, --activacion_procesar
@@ -120,11 +120,11 @@ INSERT INTO apex_objeto_ci_pantalla (objeto_ci_proyecto, objeto_ci, pantalla, id
 	'2424', --objeto_ci
 	'1239', --pantalla
 	'pant_edicion', --identificador
-	'0', --orden
+	'1', --orden
 	'Pantalla', --etiqueta
 	NULL, --descripcion
 	NULL, --tip
-	NULL, --imagen_recurso_origen
+	'apex', --imagen_recurso_origen
 	NULL, --imagen
 	NULL, --objetos
 	NULL, --eventos
@@ -132,7 +132,7 @@ INSERT INTO apex_objeto_ci_pantalla (objeto_ci_proyecto, objeto_ci, pantalla, id
 	NULL, --subclase_archivo
 	NULL, --template
 	NULL, --template_impresion
-	NULL  --punto_montaje
+	'13'  --punto_montaje
 );
 --- FIN Grupo de desarrollo 0
 

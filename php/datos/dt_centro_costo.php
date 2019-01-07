@@ -25,11 +25,20 @@ class dt_centro_costo extends guc_datos_tabla
 
 
 
-	function get_descripciones()
-	{
-		$sql = "SELECT id, descripcion FROM centro_costo ORDER BY descripcion";
-		return toba::db('guc')->consultar($sql);
-	}
+		function get_descripciones()
+		{
+			$sql = "SELECT id, descripcion FROM centro_costo ORDER BY descripcion";
+			return toba::db('guc')->consultar($sql);
+		}
+
+
+
+
+
+
+
+
+
 
 
 

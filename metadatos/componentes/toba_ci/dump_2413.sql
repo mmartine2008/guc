@@ -22,10 +22,10 @@ INSERT INTO apex_objeto (proyecto, objeto, anterior, identificador, reflexivo, c
 	NULL, --objeto_categoria
 	'Formato de Fecha - CI', --nombre
 	NULL, --titulo
-	NULL, --colapsable
+	'0', --colapsable
 	NULL, --descripcion
-	'guc', --fuente_datos_proyecto
-	'guc', --fuente_datos
+	NULL, --fuente_datos_proyecto
+	NULL, --fuente_datos
 	NULL, --solicitud_registrar
 	NULL, --solicitud_obj_obs_tipo
 	NULL, --solicitud_obj_observacion
@@ -37,7 +37,7 @@ INSERT INTO apex_objeto (proyecto, objeto, anterior, identificador, reflexivo, c
 	NULL, --parametro_f
 	NULL, --usuario
 	'2018-04-22 04:55:13', --creacion
-	NULL  --posicion_botonera
+	'abajo'  --posicion_botonera
 );
 --- FIN Grupo de desarrollo 0
 
@@ -60,9 +60,9 @@ INSERT INTO apex_objeto_eventos (proyecto, evento_id, objeto, identificador, eti
 	'nucleo/agregar.gif', --imagen
 	'1', --en_botonera
 	NULL, --ayuda
-	'0', --orden
+	'1', --orden
 	NULL, --ci_predep
-	NULL, --implicito
+	'0', --implicito
 	'1', --defecto
 	NULL, --display_datos_cargados
 	NULL, --grupo
@@ -85,7 +85,7 @@ INSERT INTO apex_objeto_eventos (proyecto, evento_id, objeto, identificador, eti
 	'2413', --objeto
 	'volver', --identificador
 	'Volver', --etiqueta
-	'1', --maneja_datos
+	'0', --maneja_datos
 	'0', --sobre_fila
 	NULL, --confirmacion
 	'ei-boton-izq', --estilo
@@ -93,10 +93,10 @@ INSERT INTO apex_objeto_eventos (proyecto, evento_id, objeto, identificador, eti
 	'deshacer.png', --imagen
 	'1', --en_botonera
 	NULL, --ayuda
-	'1', --orden
+	'2', --orden
 	NULL, --ci_predep
-	NULL, --implicito
-	NULL, --defecto
+	'0', --implicito
+	'0', --defecto
 	NULL, --display_datos_cargados
 	NULL, --grupo
 	NULL, --accion
@@ -126,10 +126,10 @@ INSERT INTO apex_objeto_eventos (proyecto, evento_id, objeto, identificador, eti
 	'borrar.png', --imagen
 	'1', --en_botonera
 	NULL, --ayuda
-	'2', --orden
+	'3', --orden
 	NULL, --ci_predep
-	NULL, --implicito
-	NULL, --defecto
+	'0', --implicito
+	'0', --defecto
 	NULL, --display_datos_cargados
 	NULL, --grupo
 	NULL, --accion
@@ -159,9 +159,9 @@ INSERT INTO apex_objeto_eventos (proyecto, evento_id, objeto, identificador, eti
 	'guardar.gif', --imagen
 	'1', --en_botonera
 	NULL, --ayuda
-	'3', --orden
+	'4', --orden
 	NULL, --ci_predep
-	NULL, --implicito
+	'0', --implicito
 	'1', --defecto
 	NULL, --display_datos_cargados
 	NULL, --grupo
@@ -192,8 +192,8 @@ INSERT INTO apex_objeto_mt_me (objeto_mt_me_proyecto, objeto_mt_me, ev_procesar_
 	'300px', --alto
 	NULL, --posicion_botonera
 	NULL, --tipo_navegacion
-	NULL, --botonera_barra_item
-	NULL, --con_toc
+	'0', --botonera_barra_item
+	'0', --con_toc
 	NULL, --incremental
 	NULL, --debug_eventos
 	NULL, --activacion_procesar

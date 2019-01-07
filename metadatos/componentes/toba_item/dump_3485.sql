@@ -1,5 +1,5 @@
 ------------------------------------------------------------
---[3485]--  Base de Datos 
+--[3485]--  Base de Datos Viejo 
 ------------------------------------------------------------
 
 ------------------------------------------------------------
@@ -23,11 +23,11 @@ INSERT INTO apex_item (item_id, proyecto, item, padre_id, padre_proyecto, padre,
 	NULL, --actividad_buffer
 	NULL, --actividad_patron_proyecto
 	NULL, --actividad_patron
-	'Base de Datos', --nombre
+	'Base de Datos Viejo', --nombre
 	NULL, --descripcion
 	'13', --punto_montaje
 	NULL, --actividad_accion
-	'1', --menu
+	'0', --menu
 	'3', --orden
 	'0', --solicitud_registrar
 	NULL, --solicitud_obs_tipo_proyecto
